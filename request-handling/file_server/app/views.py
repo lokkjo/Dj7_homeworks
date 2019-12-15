@@ -6,7 +6,8 @@ from django.shortcuts import render
 def file_list(request):
     template_name = 'index.html'
     
-    # Реализуйте алгоритм подготавливающий контекстные данные для шаблона по примеру:
+    # Реализуйте алгоритм подготавливающий контекстные данные
+    # для шаблона по примеру:
     context = {
         'files': [
             {'name': 'file_name_1.txt',
@@ -20,7 +21,8 @@ def file_list(request):
 
 
 def file_content(request, name):
-    # Реализуйте алгоритм подготавливающий контекстные данные для шаблона по примеру:
+    # Реализуйте алгоритм подготавливающий контекстные данные
+    # для шаблона по примеру:
     return render(
         request,
         'file_content.html',
