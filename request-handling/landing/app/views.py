@@ -32,7 +32,6 @@ def index(request):
 
 def landing(request):
     ab_test_arg = request.GET.get('ab-test-arg')
-    print(ab_test_arg)
     if ab_test_arg == 'original':
         counter_show.update('o')
         return render_to_response('landing.html')

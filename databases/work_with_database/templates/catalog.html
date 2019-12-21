@@ -10,10 +10,41 @@
 
         <div class="sort-block">
             {# Здесь должен быть раздел с сортировкой #}
+            {% url 'catalog' as cat_url %}
+            {% if cat_url %}
+            <table width="65%" class="u-full-width">
+                <tbody>
+                    <tr>
+                        <td><b>Сортировка выдачи:</b></td>
+                        <td><a href="{{ cat_url }}?sort=name">по имени</a></td>
+                        <td><a href="{{ cat_url }}?sort=min_price">сначала дешёвые</a></td>
+                        <td><a href="{{ cat_url }}?sort=max_price">сначала дорогие</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            {% endif %}
         </div>
 
         <div class="content">
             {# Здесь должен отображаться каталог с телефонами #}
+            {% if phones %}
+                {% for phone in phones %}
+            <table  class="u-full-width">
+            <tbody>
+                <td>
+                    <br>
+                    <a href="{{ cat_url }}{{ phone.slug }}"><h1>{{ phone.name }}</h1></a>
+                    <img src={{ phone.image }} height="400"/><br>
+                    Цена: {{ phone.price }} р.<br>
+                    <br>
+                </td>
+          </tbody>
+          </table>
+            {% endfor %}
+
+        {% else %}
+            <strong>There are no phones present.</strong>
+        {% endif %}
         </div>
     </div>
 {% endblock %}

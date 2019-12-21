@@ -8,7 +8,22 @@
             <h1>Телефон</h1>
         </div>
         <div class="content">
+            {% if phone %}
 
+            <h1>{{ phone.name }}</h1>
+            Цена: {{ phone.price }} р.<br>
+            <img src={{ phone.image }} height="400"/><br>
+            Дата выхода модели: {{ phone.release_date }}<br>
+            Поддержка LTE:
+                {% if phone.lte_exists %}
+                есть.
+                {% else %}
+                нет.
+                {% endif %}
+                <br>
+            {% else %}
+            <strong>There are no phones in the base.</strong>
+            {% endif %}
         </div>
     </div>
 {% endblock %}
