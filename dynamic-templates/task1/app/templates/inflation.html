@@ -43,29 +43,25 @@
             <tbody>
 
             {% for row in inflation_data %}
-            <tr>
-              <td>{{ row.Year }}</td>
-              <td>{{ row.Jan }}</td>
-              <td>{{ row.Feb }}</td>
-              <td>{{ row.Mar }}</td>
-              <td>{{ row.Apr }}</td>
-              <td>{{ row.May }}</td>
-              <td>{{ row.Jun }}</td>
-              <td>{{ row.Jul }}</td>
-              <td>{{ row.Aug }}</td>
-              <td>{{ row.Sep }}</td>
-              <td>{{ row.Oct }}</td>
-              <td>{{ row.Nov }}</td>
-              <td>{{ row.Dec }}</td>
-              <td bgcolor="gray">{{ row.Sum }}</td>
-            </tr>
+                <tr>
+                  <td bgcolor="white">{{ row.Year }}</td>
+                  <td>{{ row.Jan }}</td>
+                  <td>{{ row.Feb }}</td>
+                  <td>{{ row.Mar }}</td>
+                  <td>{{ row.Apr }}</td>
+                  <td>{{ row.May }}</td>
+                  <td>{{ row.Jun }}</td>
+                  <td>{{ row.Jul }}</td>
+                  <td>{{ row.Aug }}</td>
+                  <td>{{ row.Sep }}</td>
+                  <td>{{ row.Oct }}</td>
+                  <td>{{ row.Nov }}</td>
+                  <td>{{ row.Dec }}</td>
+                  <td bgcolor="gray">{{ row.Sum }}</td>
+                </tr>
           {% endfor %}
           </tbody>
-
           </table>
-        
-
-
         </div>
       </div>
     {% endblock %}

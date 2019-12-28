@@ -18,7 +18,9 @@ def inflation_view(request):
               encoding='UTF-8') as inf_csvfile:
         reader = csv.DictReader(inf_csvfile, delimiter=';')
         for row in reader:
-            # print(row)
+            for key in row:
+                if row.get(key) == '':
+                    row[key] = '—'
             inf_row = {
                 'Year': row['Год'],
                 'Jan': row['Янв'],
@@ -36,6 +38,7 @@ def inflation_view(request):
                 'Sum': row['Суммарная'],
             }
             inflation_data.append(inf_row)
+            # print(inflation_data)
 
 
     context = {
