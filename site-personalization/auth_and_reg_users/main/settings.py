@@ -21,7 +21,12 @@ SECRET_KEY = 'h$1#bq_=9qt4pl226%19cx61y%1@33i(wq_xv!g8i##)+@+5fr'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+AUTH_USER_MODEL = 'auth.User'
+
 LOGIN_REDIRECT_URL = "/"
+LOGIN_URL = 'login/'
+# LOGOUT_REDIRECT_URL = 'logout/'
 
 # Application definition
 
@@ -113,6 +118,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+
 
 try:
     from .settings_local import *
