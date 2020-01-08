@@ -32,9 +32,10 @@ def product_view(request, pk):
     form = ReviewForm
 
     if request.method == 'POST':
+        form = ReviewForm(request.POST)
         if form.is_valid():
-        # логика для добавления отзыва
-            text = request.POST.get('text')
+            # логика для добавления отзыва
+            text = form.cleaned_data['text']
             new_review = Review.objects.create(text=text,
                                            product=product)
             session[str(pk)] = True
