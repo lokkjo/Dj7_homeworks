@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.http import HttpRequest
 from django.shortcuts import redirect, render, get_object_or_404
 from django.urls import reverse
@@ -30,12 +31,15 @@ def product_view(request, pk):
     session.get(str(pk), False)
     form = ReviewForm
 
-    if request.method == 'POST' and form.is_valid():
+    if request.method == 'POST':
+        if form.is_valid():
         # логика для добавления отзыва
-        text = request.POST.get('text')
-        new_review = Review.objects.create(text=text,
-                                       product=product)
-        session[str(pk)] = True
+            text = request.POST.get('text')
+            new_review = Review.objects.create(text=text,
+                                           product=product)
+            session[str(pk)] = True
+        else:
+            raise ValidationError('Введены некорректные данные')
 
     if session.get(str(pk)):
         is_review_exists = True
