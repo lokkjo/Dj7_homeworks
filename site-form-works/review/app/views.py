@@ -29,7 +29,8 @@ def product_view(request, pk):
 
     session.get(str(pk), False)
     form = ReviewForm
-    if request.method == 'POST':
+
+    if request.method == 'POST' and form.is_valid():
         # логика для добавления отзыва
         text = request.POST.get('text')
         new_review = Review.objects.create(text=text,
@@ -38,6 +39,7 @@ def product_view(request, pk):
 
     if session.get(str(pk)):
         is_review_exists = True
+
     context = {
         'form': form,
         'product': product,
