@@ -1,4 +1,4 @@
-<!DOCTYPE html> {% load static %}
+<!DOCTYPE html> {% load static %} {% load custom_color %}
 <html>
   <head>
     <meta charset="UTF-8">
@@ -45,19 +45,19 @@
             {% for row in inflation_data %}
                 <tr>
                   <td bgcolor="white">{{ row.Year }}</td>
-                  <td>{{ row.Jan }}</td>
-                  <td>{{ row.Feb }}</td>
-                  <td>{{ row.Mar }}</td>
-                  <td>{{ row.Apr }}</td>
-                  <td>{{ row.May }}</td>
-                  <td>{{ row.Jun }}</td>
-                  <td>{{ row.Jul }}</td>
-                  <td>{{ row.Aug }}</td>
-                  <td>{{ row.Sep }}</td>
-                  <td>{{ row.Oct }}</td>
-                  <td>{{ row.Nov }}</td>
-                  <td>{{ row.Dec }}</td>
-                  <td bgcolor="gray">{{ row.Sum }}</td>
+                  <td bgcolor="{{ row.Jan|custom_color }}">{{ row.Jan }}</td>
+                  <td bgcolor="{{ row.Feb|custom_color }}">{{ row.Feb }}</td>
+                  <td bgcolor="{{ row.Mar|custom_color }}">{{ row.Mar }}</td>
+                  <td bgcolor="{{ row.Apr|custom_color }}">{{ row.Apr }}</td>
+                  <td bgcolor="{{ row.May|custom_color }}">{{ row.May }}</td>
+                  <td bgcolor="{{ row.Jun|custom_color }}">{{ row.Jun }}</td>
+                  <td bgcolor="{{ row.Jul|custom_color }}">{{ row.Jul }}</td>
+                  <td bgcolor="{{ row.Aug|custom_color }}">{{ row.Aug }}</td>
+                  <td bgcolor="{{ row.Sep|custom_color }}">{{ row.Sep }}</td>
+                  <td bgcolor="{{ row.Oct|custom_color }}">{{ row.Oct }}</td>
+                  <td bgcolor="{{ row.Nov|custom_color }}">{{ row.Nov }}</td>
+                  <td bgcolor="{{ row.Dec|custom_color }}">{{ row.Dec }}</td>
+                  <td bgcolor="grey">{{ row.Sum }}</td>
                 </tr>
           {% endfor %}
           </tbody>
