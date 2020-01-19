@@ -4,7 +4,9 @@ from django.db import models
 
 
 class Player(models.Model):
-    participating_the_game = models
+    participating_the_game = models.ManyToManyField(
+        'Game', through='PlayerGameInfo', related_name='games'
+        )
     is_gamemaster = models.BooleanField()
 
 
@@ -15,4 +17,6 @@ class Game(models.Model):
 
 
 class PlayerGameInfo(models.Model):
-    pass
+    player = models.ForeignKey(Player, on_delete=models.CASCADE)
+    game = models.ForeignKey(Game, on_delete=models.CASCADE)
+
